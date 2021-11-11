@@ -3,10 +3,8 @@ class Point {
     this.coordinates = [x, y, z]
   }
 
-  getSector() {
-    const signs = this.coordinates.map(coord => coord >= 0 ? '+' : '-').join('')
-
-    const sectors = {
+  static get sectors() {
+    return {
       '+++': 'Alfa',
       '++-': 'Beta',
       '+-+': 'Gama',
@@ -16,8 +14,11 @@ class Point {
       '--+': 'Sigma',
       '---': 'Ômega',
     }
+  }
 
-    return sectors[signs]
+  getSector() {
+    const signs = this.coordinates.map(coord => coord >= 0 ? '+' : '-').join('')
+    return Point.sectors[signs]
   }
 
   getDistance() {
