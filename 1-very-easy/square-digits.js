@@ -9,9 +9,17 @@
 //   return Number(result)
 // }
 
+// function squareDigits(num) {
+//   const digitsString = num.toString()
+// 	 const digitsArray = digitsString.split('')
+// 	 const squaredArray = digitsArray.map(number => number ** 2)
+//   const squaredString = squaredArray.join('')
+//   return Number(squaredString)
+// }
+
 function squareDigits(num) {
   const digitsArray = num.toString().split('')
-  return Number.parseInt(digitsArray.map(number => number ** 2).join(''))
+  return Number(digitsArray.map(number => number ** 2).join(''))
 }
 
 console.log(squareDigits(94572))

@@ -1,10 +1,18 @@
+// function invertWords(str) {
+//   const wordsArray = str.split(' ')
+//   const invertedWords = wordsArray.map(word => {
+//     const lowerCaseWord = word.toLowerCase()
+//     return lowerCaseWord.split('').reverse().join('')
+//   })
+  
+//   return invertedWords.join(' ')
+// }
+
 function invertWord(word) {
-  console.log(word);
   return word.toLowerCase().split('').reverse().join('')
 }
 
 function invertWords(str) {
-  console.log(str.split(' '))
   return str.split(' ').map(invertWord).join(' ')
 }
 

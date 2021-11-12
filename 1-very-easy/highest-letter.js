@@ -1,3 +1,10 @@
+// function highestLetter(str) {
+// 	 const lowerCaseString = str.toLowerCase()
+// 	 const lettersArray = lowerCaseString.split('')
+//   const sortedLetters = lettersArray.sort()
+//   return sortedLetters[sortedLetters.length - 1]
+// }
+
 function highestLetter(str) {
   const sortedLetters = str.toLowerCase().split('').sort()
   return sortedLetters[sortedLetters.length - 1]

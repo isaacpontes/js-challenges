@@ -1,7 +1,6 @@
 function recursiveChunks(num) {
   if (num === 0) return ""
-  if (num === 1) return "chunk"
-  else return "chunk-" + recursiveChunks(num - 1) 
+  return num === 1 ? "chunk" : "chunk-" + recursiveChunks(num - 1) 
 }
 
 console.log(recursiveChunks(5))

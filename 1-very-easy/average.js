@@ -1,4 +1,13 @@
 // function average(numbers) {
+//   let sum = 0
+//   numbers.forEach(number => {
+//     sum += num
+//   })
+//   const avg = sum / numbers.length
+//   return avg
+// }
+
+// function average(numbers) {
 //   const sum = numbers.reduce((accum, num) => accum + num, 0)
 //   const avg = sum / numbers.length
 //   return avg
