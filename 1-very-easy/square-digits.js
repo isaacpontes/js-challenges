@@ -22,7 +22,9 @@ function squareDigits(num) {
   return Number(digitsArray.map(number => number ** 2).join(''))
 }
 
-console.log(squareDigits(94572))
+
+
+console.log(squareDigits(3514)) // 925116
+console.log(squareDigits(94571)) // 811625494
 console.log(squareDigits(24))
-console.log(squareDigits(3206))
 console.log(squareDigits(745821698))

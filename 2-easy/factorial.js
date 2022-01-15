@@ -1,10 +1,10 @@
 function factorial(num) {
-  if (num < 0) return "Erro! Números negativos não permitidos."
-  if (num === 0)return 1
-  else return num * factorial(num - 1)
+  const bigInt = BigInt(num)
+  if (bigInt === 0n)return 1n
+  else return bigInt * factorial(bigInt - 1n)
 }
 
 console.log(factorial(5))
 console.log(factorial(0))
-console.log(factorial(-3))
-console.log(factorial(9))
+console.log(factorial(32))
+console.log(factorial(9n))

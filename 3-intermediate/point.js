@@ -1,19 +1,17 @@
 class Point {
-  constructor([x, y, z]) {
+  constructor(x, y, z) {
     this.coordinates = [x, y, z]
   }
 
-  static get sectors() {
-    return {
-      '+++': 'Alfa',
-      '++-': 'Beta',
-      '+-+': 'Gama',
-      '+--': 'Delta',
-      '-++': 'Épsilon',
-      '-+-': 'Zeta',
-      '--+': 'Sigma',
-      '---': 'Ômega',
-    }
+  static sectors = {
+    '+++': 'Alfa',
+    '++-': 'Beta',
+    '+-+': 'Gama',
+    '+--': 'Delta',
+    '-++': 'Épsilon',
+    '-+-': 'Zeta',
+    '--+': 'Sigma',
+    '---': 'Ômega',
   }
 
   getSector() {
@@ -26,10 +24,10 @@ class Point {
   }
 }
 
-const point1 = new Point([37, 42, 15])
-const point2 = new Point([144, 49, 0])
-const point3 = new Point([-37, 0, 0])
-const point4 = new Point([-19, -80, -32])
+const point1 = new Point(37, 42, 15)
+const point2 = new Point(144, 49, 0)
+const point3 = new Point(-37, 0, 0)
+const point4 = new Point(-19, -80, -32)
 
 console.log(point1.getSector(), `\nDistance: ${point1.getDistance()} units`)
 console.log(point2.getSector(), `\nDistance: ${point2.getDistance()} units`)

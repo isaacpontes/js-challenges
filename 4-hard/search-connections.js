@@ -1,16 +1,19 @@
 const results = []
 
-function isObject(obj) {
-  return Object.prototype.toString.call(obj) === '[object Object]' 
-}
-
 function searchConnections(data) {
-  Object.entries(data).forEach(([key, value]) => {
+
+  Object.entries(data).forEach( ([key, value]) => {
+
+    if (key === 'connection') {
+      results.push([value._id, value.label])
+    }
 
     if (key === 'connections') {
+
       value.forEach(component => {
         results.push([component._id, component.label])
       })
+
     }
 
     if (Array.isArray(value)) {
@@ -19,17 +22,17 @@ function searchConnections(data) {
         searchConnections(innerObject)
       })
 
-    } else if (isObject(value)) {
+    } else if (Object.prototype.toString.call(value) === '[object Object]') {
+
       searchConnections(value)
+
     }
 
-    if (key === 'connection') {
-      results.push([value._id, value.label])
-    }
   })
+
 }
 
-const data = require('./json/data-1.json')
+const data = require('./json/data-2.json')
 searchConnections(data)
 
 console.log(results)

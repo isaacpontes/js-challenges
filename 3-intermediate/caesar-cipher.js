@@ -22,3 +22,4 @@ function caesarCipher(str, key) {
 console.log(caesarCipher('Vguvg', 2))
 console.log(caesarCipher('BCDYZAbcdyza', 27))
 console.log(caesarCipher('Qaiik', 60))
+console.log(caesarCipher('Amozmlw', 8))

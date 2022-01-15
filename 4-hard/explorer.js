@@ -9,13 +9,19 @@ class Explorer {
     this.alive = true
   }
 
-  rank() {
+  get rank() {
     if (this.level < 10) return 'Newbie'
     if (this.level < 30) return 'Explorer'
     if (this.level < 50) return 'Veteran'
     if (this.level < 80) return 'Elite'
     if (this.level < 99) return 'Master'
     return 'Legend'
+  }
+
+  static explorationHandler = {
+    pacific: (diceResult) => diceResult >= 5 ? 15 : 0,
+    neutral: (diceResult) => diceResult >= 7 ? 25 : 0,
+    hostile: (diceResult) => diceResult >= 9 ? 50 : 10
   }
 
   gainExperience(pts) {
@@ -37,12 +43,15 @@ class Explorer {
     }
   }
 
-  static explorationHandler() {
-    return {
-      pacific: (diceResult) => diceResult >= 5 ? 15 : 0,
-      neutral: (diceResult) => diceResult >= 7 ? 25 : 0,
-      hostile: (diceResult) => diceResult >= 9 ? 50 : 10
-    }
+  throwDices() {
+    const dice1 = Math.floor(1 + Math.random() * 5)
+    const dice2 = Math.floor(1 + Math.random() * 5)
+
+    // Bonus (if applied)
+    const bonus = this.terrainExpertise[terrain] > 2 ? 1 : 0
+    console.log(`Rolled ${dice1} and ${dice2} ${bonus ? '+1 bônus' : ''}`)
+
+    return dice1 + dice2 + bonus
   }
 
   explore(planet) {
@@ -54,18 +63,10 @@ class Explorer {
 
     const { id, hostility, terrain } = planet
 
-    // Throw dices
-    const dice1 = Math.floor(1 + Math.random() * 5)
-    const dice2 = Math.floor(1 + Math.random() * 5)
-
-    // Result with bonus (if applied)
-    const bonus = this.terrainExpertise[terrain] > 2 ? 1 : 0
-    const dices = dice1 + dice2 + bonus
-
-    console.log(`Rolled ${dice1} and ${dice2} ${bonus ? '+1 bônus' : ''}`)
+    const dices = this.throwDices()
 
     // Check for critical
-    if (dices === 12) {
+    if (dices >= 12) {
       this.terrainExpertise[terrain] = this.terrainExpertise[terrain] + 1 || 1
     }
 
@@ -77,22 +78,22 @@ class Explorer {
     }
 
     // Handle exploration
-    const handler = Explorer.explorationHandler()    
-    const result = handler[hostility](dices)
+    const handler = Explorer.explorationHandler[hostility]
+    const obtainedExp = handler(dices)
 
-    this.gainExperience(result)
+    this.gainExperience(obtainedExp)
 
     // Handle result
-    if (result > 10) {
+    if (obtainedExp > 10) {
       const planetAlreadyExplored = this.knownPlanets.find(planet => planet.id === id)
-
+  
       if (! planetAlreadyExplored) {
         this.knownPlanets.push(planet)
       }
-
-      console.log(`Success! Earned ${result} exp.`)
+  
+      console.log(`Success! Earned ${obtainedExp} exp.`)
     } else {
-      console.log(`Failure. Earned ${result} exp.`)
+      console.log(`Failure. Earned ${obtainedExp} exp.`)
     }
   }
 }
@@ -113,5 +114,5 @@ setInterval(() => {
   console.log('...')
 
   console.log(kirk)
-  console.log(kirk.rank())
+  console.log(kirk.rank)
 }, 1000 * 3)

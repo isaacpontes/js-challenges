@@ -26,15 +26,15 @@ function checkVerificationDigit(num) {
 
   const expectedDigit = calculateDigit(numbersArrayWithoutDigit)
 
-  console.log({ expected: expectedDigit, got: numbersArray[11]})
-
   return expectedDigit === numbersArray[11]
 }
 
 const code1 = createRandomValidCode()
 const code2 = createRandomValidCode()
 
+console.log(code1)
 console.log(checkVerificationDigit(code1))
+console.log(code2)
 console.log(checkVerificationDigit(code2))
 console.log(checkVerificationDigit(code1 + 1))
-console.log(checkVerificationDigit(code2 + 1))
+console.log(checkVerificationDigit(123456789872))

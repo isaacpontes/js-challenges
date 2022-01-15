@@ -19,7 +19,10 @@ function missingPrisoners(prisoners) {
   return missing
 }
 
-console.log(missingPrisoners(['0020', '0002', '0013', '0004', '0001', '0016', '0015', '0006', '0012', '0007', '0005', '0008', '0011', '0010']))
+const arr = ['0020', '0002', '0013', '0004', '0001', '0016', '0015', '0006', '0012', '0007', '0005', '0008', '0011', '0010']
+console.log(missingPrisoners(arr))
 console.log(missingPrisoners(['0020', '0009', '0002', '0013', '0004', '0017', '0001', '0003', '0016', '0015', '0019', '0006', '0012', '0007', '0005', '0014', '0008', '0011', '0010', '0018']))
 console.log(missingPrisoners(['0004', '0002', '0005', '0003']))
 console.log(missingPrisoners([]))
+
+console.log(arr);

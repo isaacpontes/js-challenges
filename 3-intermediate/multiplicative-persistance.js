@@ -9,7 +9,7 @@ function multiplicativePersistance(num) {
   return 1 + multiplicativePersistance(product)
 }
 
-console.log(multiplicativePersistance(539))
-console.log(multiplicativePersistance(999))
-console.log(multiplicativePersistance(7))
-console.log(multiplicativePersistance(7169))
+console.log(multiplicativePersistance(539))  // 3
+console.log(multiplicativePersistance(999))  // 4
+console.log(multiplicativePersistance(7))    // 0
+console.log(multiplicativePersistance(7169)) // 5

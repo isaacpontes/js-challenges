@@ -21,6 +21,6 @@ function possiblePasswords(chars) {
 }
 
 console.log(possiblePasswords(["1", "2", "3"]))
-console.log(possiblePasswords(["a", "7", "c", "4", "@", "V"]))
+console.log(possiblePasswords(["a", "7", "c", "4", "@"]))
 console.log(possiblePasswords([]))
-console.log(possiblePasswords(["X", "s", "-", "#", "a", "o", "5", "G", "0", "m"]))
+console.log(possiblePasswords(["X", "s", "-", "#"]))

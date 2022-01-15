@@ -12,7 +12,7 @@ function insertIntoString(str, toInsert, indexes) {
   return charsArray.join('')
 }
 
-console.log(insertIntoString('capaz utilizar as cápsulas emergência', 'de ', [6, 27]))
+console.log(insertIntoString('capaz utilizar as cápsulas emergência', 'de ', [6, 27, 38]))
 console.log(insertIntoString('Nós decidimos apesar das chances serem baixas que enviaríamos um sinal para [...]', ',', [13, 45]))
 console.log(insertIntoString('Hello', 'world', [6]))
 console.log(insertIntoString('Isso é um teste', 'não', []))
